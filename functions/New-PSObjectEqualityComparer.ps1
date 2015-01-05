@@ -2,7 +2,7 @@ function New-PSObjectEqualityComparer {
     [cmdletbinding()]
     param (
         [Func[PSObject, PSObject, bool]]$EqualsDelegate,
-        [Func[PSObject, int]]$GetHashCodeDelegate,
+        [Func[PSObject, int]]$GetHashCodeDelegate
     )
 
     return (new-object GravityPS.PSObjectEqualityComparer($EqualsDelegate, $GetHashCodeDelegate))
