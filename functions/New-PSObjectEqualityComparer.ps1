@@ -1,5 +1,4 @@
 function New-PSObjectEqualityComparer {
-    [cmdletbinding()]
     param (
         [Func[PSObject, PSObject, bool]]$EqualsDelegate,
         [Func[PSObject, int]]$GetHashCodeDelegate

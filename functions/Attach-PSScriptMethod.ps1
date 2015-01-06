@@ -37,14 +37,19 @@ function Attach-PSScriptMethod {
     if($Override) {
         $existingMethod = $InputObject.psobject.Methods[$Name]
         if($existingMethod -ne $null) {
-            Assert-ScriptBlockParametersEqual $PSScriptMethod.Script $existingMethod.Script
+            if($existingMethod.MemberType -eq 'ScriptMethod') {
+                Assert-ScriptBlockParametersEqual $PSScriptMethod.Script $existingMethod.Script
+            }
+
             $InputObject.psobject.methods.remove($Name)
         } else {
             throw (new-object System.InvalidOperationException("Could not find a method with name: $Name"))
         }
     }
 
-    if($InputObject.psobject.Methods[$Name] -eq $null) {
+    $objectVirtualMethodNames = [type]::GetType('System.Object').GetMembers() | ?{$_.IsVirtual} | %{$_.Name}
+    $existingMethod = $InputObject.psobject.Methods[$Name]
+    if($existingMethod -eq $null -or ($existingMethod.MemberType -eq 'Method' -and $objectVirtualMethodNames -contains $name)) {
         [Void]$InputObject.psobject.methods.add($PSScriptMethod)
     } else {
         throw (new-object System.InvalidOperationException("method with name: $Name already exists. Parameter: -Override required."))
