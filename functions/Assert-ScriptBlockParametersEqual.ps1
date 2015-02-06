@@ -2,7 +2,8 @@ function Assert-ScriptBlockParametersEqual {
     param (
         [ScriptBlock]$x,
         [ScriptBlock]$y,
-        [Switch]$AssertNamesMatch
+        [Switch]$AssertNamesMatch,
+        [Switch]$Strict
     )
 
     if($x -eq $null -or $y -eq $null) {
@@ -11,7 +12,7 @@ function Assert-ScriptBlockParametersEqual {
 
     $xParams = @(?: {$x.Ast.ParamBlock -ne $null} {$x.Ast.ParamBlock.Parameters} {})
     $yParams = @(?: {$y.Ast.ParamBlock -ne $null} {$y.Ast.ParamBlock.Parameters} {})
-    if($xParams.Count -ne $yParams.Count) {
+    if($Strict -and $xParams.Count -ne $yParams.Count) {
         throw (New-Object ParametersNotEquivalentException(('Param count mismatch. x: {0} y: {1}' -f $xParams.Count, $yParams.Count)))
     }
 
