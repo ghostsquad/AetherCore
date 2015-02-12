@@ -20,7 +20,7 @@ Copyright (c) 2014 Wes McNamee
 @{
       ModuleToProcess = 'GravityPS.psm1'
 
-        ModuleVersion = '0.1.0'
+        ModuleVersion = '0.1.1'
 
                  GUID = 'E3AE1C95-D0D6-442F-9165-8654DC7A2055'
 
