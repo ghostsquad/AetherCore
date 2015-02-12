@@ -25,6 +25,7 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $here\functions\New-PSCredential.ps1
 . $here\functions\New-PSObject.ps1
 . $here\functions\New-PSObjectEqualityComparer.ps1
+. $here\functions\Where-Any.ps1
 . $here\functions\PSCustomObjectExtensions.ps1
 
 Export-ModuleMember -Function *-*

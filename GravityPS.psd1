@@ -64,6 +64,7 @@ Copyright (c) 2014 Wes McNamee
                         'New-PSCredential'
                         'New-PSObject'
                         'New-PSObjectEqualityComparer'
+                        'Where-Any'
                         )
 
              FileList = @(
@@ -95,6 +96,7 @@ Copyright (c) 2014 Wes McNamee
                         'functions\New-PSCredential'
                         'functions\New-PSObject'
                         'functions\New-PSObjectEqualityComparer.ps1'
+                        'functions\Where-Any.ps1'
                         )
 
           PrivateData = @{
