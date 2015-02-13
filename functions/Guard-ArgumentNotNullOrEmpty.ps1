@@ -8,11 +8,13 @@ function Guard-ArgumentNotNullOrEmpty {
 
     if($ArgumentValue -is [System.Collections.IEnumerable]) {
         if (!$ArgumentValue.GetEnumerator().MoveNext()) {
-            throw (New-Object System.ArgumentException("Argument was empty", $ArgumentName))
+            throw (New-Object System.ArgumentException("Argument was empty.", $ArgumentName))
         }
     }
 
-    if($ArgumentValue -is [string] -and [String]::IsNullOrEmpty($ArgumentValue.ToString())) {
-        throw (New-Object System.ArgumentException("Argument was empty", $ArgumentName))
+    if($ArgumentValue -eq $null) {
+        throw (New-Object System.ArgumentException("Value cannot be null.", $ArgumentName))
+    } elseif($ArgumentValue -is [string] -and $ArgumentValue -eq [string]::Empty) {
+        throw (New-Object System.ArgumentException("Argument was empty.", $ArgumentName))
     }
 }
