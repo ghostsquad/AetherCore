@@ -265,16 +265,6 @@ Describe "PSOverrideScriptMethod" {
             $actualObject.$expectedName() | Should Be "new"
         }
 
-        It "Throws an expection if param definition is different" {
-            $expectedName = "foo"
-            $actualDefinition = {param($a)}
-
-            $actualObject = new-psobject
-            $actualObject | Add-Member -MemberType ScriptMethod -Name $expectedName -Value $actualDefinition
-
-            { [Void]$actualObject.PSOverrideScriptMethod("foo", {param($a, $b)}) } | Should Throw
-        }
-
         It "Returns self" {
             $expectedObject = New-PSObject
             $expectedName = "foo"

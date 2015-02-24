@@ -16,7 +16,9 @@ function Assert-ScriptBlockParametersEqual {
         throw (New-Object ParametersNotEquivalentException(('Param count mismatch. x: {0} y: {1}' -f $xParams.Count, $yParams.Count)))
     }
 
-    for($i = 0; $i -lt $xParams.Count; $i++) {
+    [int]$max = ?: { $xParams.Count -le $yParams.Count } { $xParams.Count } { $yParams.Count }
+
+    for($i = 0; $i -lt $max; $i++) {
         if($xParams[$i].StaticType -ne $yParams[$i].StaticType) {
             throw (New-Object ParametersNotEquivalentException(('Param type mismatch. x: {0} y: {1}' -f $xParams[$i].StaticType, $yParams[$i].StaticType)))
         }

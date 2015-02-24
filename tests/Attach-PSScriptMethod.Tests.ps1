@@ -41,20 +41,6 @@ Describe "Attach-PSScriptMethod" {
 
             $actualObject.psobject.methods[$expectedMethodName].Script.ToString() | Should Be $expectedScript.ToString()
         }
-
-        It "throws if original method has no parameters defined and override has parameters defined" {
-            $actualObject = New-PSObject
-            Attach-PSScriptMethod $actualObject $expectedMethodName {}
-            $action = { Attach-PSScriptMethod $actualObject $expectedMethodName {param($a)} -override }
-            $action | Should Throw
-        }
-
-        It "throws if method parameter count is mismatched" {
-            $actualObject = New-PSObject
-            Attach-PSScriptMethod $actualObject $expectedMethodName {param($a)}
-            $action = { Attach-PSScriptMethod $actualObject $expectedMethodName {param($a, $b)} -override }
-            $action | Should Throw
-        }
     }
 
     Context 'Given PSScriptMethod' {
