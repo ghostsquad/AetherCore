@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Aether.Core
+﻿namespace Aether.Core
 {
+    using System;
+
     public class ParametersNotEquivalentException : Exception
     {
         public ParametersNotEquivalentException(string message)
