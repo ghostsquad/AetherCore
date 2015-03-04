@@ -2,6 +2,8 @@ $ErrorActionPrefence = "Stop"
 Set-StrictMode -Version Latest
 
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$moduleName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Path)
+[Void](Add-Type -Path (Join-Path $here ($moduleName + '.dll')))
 
 . $here\functions\Add-TypeAccelerator.ps1
 . $here\functions\Assert-ScriptBlockParametersEqual.ps1
