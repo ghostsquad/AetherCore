@@ -1,5 +1,5 @@
 <#############################################################################
-The GravityPS module is a core framework for Powershell, enhancing
+The AetherCore module is a core framework for Powershell, enhancing
 various idioms, and streamlining common, repetitive code.
 
 Copyright (c) 2014 Wes McNamee
@@ -18,7 +18,7 @@ Copyright (c) 2014 Wes McNamee
 #############################################################################>
 
 @{
-      ModuleToProcess = 'GravityPS.psm1'
+      ModuleToProcess = 'AetherCore.psm1'
 
         ModuleVersion = '0.1.3'
 
@@ -30,7 +30,7 @@ Copyright (c) 2014 Wes McNamee
 
             Copyright = 'Copyright 2014 Weston McNamee'
 
-          Description = 'The GravityPS module is a core framework for Powershell, enhancing various idioms, and streamlining common, repetitive code.'
+          Description = 'The AetherCore module is a core framework for Powershell, enhancing various idioms, and streamlining common, repetitive code.'
 
     PowerShellVersion = '3.0'
 
@@ -69,8 +69,9 @@ Copyright (c) 2014 Wes McNamee
 
              FileList = @(
                         'LICENSE'
-                        'GravityPS.psd1'
-                        'GravityPS.psm1'
+                        'AetherCore.psd1'
+                        'AetherCore.psm1'
+                        'AetherCore.dll'
                         'functions\Add-TypeAccelerator'
                         'functions\Assert-ScriptBlockParametersEqual'
                         'functions\Attach-PSNote'
@@ -101,9 +102,9 @@ Copyright (c) 2014 Wes McNamee
 
           PrivateData = @{
                             PSData = @{
-                                Tags = 'GravityPS framework powershell'
-                                LicenseUri = 'http://opensource.org/licenses/MIT'
-                                ProjectUri = 'https://github.com/GhostSquad/GravityPS'
+                                Tags = 'AetherCore framework powershell'
+                                LicenseUri = 'http://www.apache.org/licenses/'
+                                ProjectUri = 'https://github.com/GhostSquad/AetherCore'
                                 IconUri = ''
                                 ReleaseNotes = ''
                             }
