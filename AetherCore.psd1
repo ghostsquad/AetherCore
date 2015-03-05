@@ -20,7 +20,7 @@ Copyright (c) 2014 Wes McNamee
 @{
       ModuleToProcess = 'AetherCore.psm1'
 
-        ModuleVersion = '0.1.3'
+        ModuleVersion = '0.1.4'
 
                  GUID = 'E3AE1C95-D0D6-442F-9165-8654DC7A2055'
 
